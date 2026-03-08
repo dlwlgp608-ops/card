@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Sans KR', 'Outfit', sans-serif;
+  background: linear-gradient(135deg, #fef7f0 0%, #fce8e0 50%, #f5e6ff 100%);
+  padding: 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: 28px;
+  padding: 40px 32px;
+  box-shadow: 0 18px 35px -12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 45px -18px rgba(0, 0, 0, 0.16);
+}
+
+.character-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.character {
+  position: relative;
+  width: 150px;
+  height: 170px;
+  animation: float 4s ease-in-out infinite;
+  cursor: pointer;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* 강아지 캐릭터 */
+.dog-head {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+}
+
+.dog-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ffe8d1;
+  border-radius: 55% 55% 50% 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.dog-ear {
+  position: absolute;
+  width: 42px;
+  height: 65px;
+  background: #c98b56;
+  top: 0;
+  border-radius: 50px 50px 60px 60px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+}
+
+.dog-ear.ear-left {
+  left: -4px;
+  transform: rotate(-10deg);
+}
+
+.dog-ear.ear-right {
+  right: -4px;
+  transform: rotate(10deg);
+}
+
+.dog-spot {
+  position: absolute;
+  width: 52px;
+  height: 60px;
+  background: #f3c8a1;
+  border-radius: 50%;
+  left: 12px;
+  top: 26px;
+}
+
+.eyes {
+  position: absolute;
+  width: 100%;
+  top: 46px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  gap: 34px;
+  z-index: 2;
+}
+
+.eye {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.pupil {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: #3b2c22;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+}
+
+.sparkle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #fff;
+  border-radius: 50%;
+  top: 3px;
+  right: 3px;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.85);
+}
+
+.dog-muzzle {
+  position: absolute;
+  width: 64px;
+  height: 46px;
+  background: #fff7f0;
+  border-radius: 40px;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.dog-nose {
+  position: absolute;
+  width: 18px;
+  height: 14px;
+  background: #3b2c22;
+  border-radius: 50% 50% 60% 60%;
+  left: 50%;
+  top: 6px;
+  transform: translateX(-50%);
+}
+
+.dog-mouth {
+  position: absolute;
+  width: 26px;
+  height: 14px;
+  border-bottom: 3px solid #e19a8a;
+  border-radius: 0 0 30px 30px;
+  left: 50%;
+  bottom: 6px;
+  transform: translateX(-50%);
+}
+
+.blush {
+  position: absolute;
+  width: 18px;
+  height: 10px;
+  background: rgba(255, 170, 170, 0.6);
+  border-radius: 50%;
+  top: 74px;
+  filter: blur(2px);
+}
+
+.blush-left { left: 20px; }
+.blush-right { right: 20px; }
+
+.info { text-align: center; }
+
+.name {
+  font-family: 'Outfit', 'Noto Sans KR', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #2d2a2e;
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+}
+
+.job {
+  font-size: 15px;
+  font-weight: 500;
+  color: #8b5cf6;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.intro {
+  font-size: 14px;
+  color: #5c5a5e;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: rgba(139, 92, 246, 0.08);
+  border-radius: 14px;
+  color: #5c5a5e;
+  text-decoration: none;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  background: rgba(139, 92, 246, 0.15);
+  color: #8b5cf6;
+  transform: translateY(-2px);
+}
+
+.contact-item .icon { font-size: 16px; }
+
+.contact-item.youtube {
+  background: rgba(255, 0, 0, 0.08);
+}
+
+.contact-item.youtube:hover {
+  background: rgba(255, 0, 0, 0.14);
+  color: #b91c1c;
+}
+
+@media (max-width: 420px) {
+  .card { padding: 32px 24px; }
+  .character { width: 130px; height: 150px; }
+  .name { font-size: 24px; }
+}
